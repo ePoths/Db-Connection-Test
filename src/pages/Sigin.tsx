@@ -4,7 +4,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/config";
 import styled from "styled-components";
-
 const Container = styled.div`
   display: flex;
   height: 100vh;
@@ -12,7 +11,9 @@ const Container = styled.div`
   align-items: center;
   background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 `;
-const SignInBox = styled.div``;
+export const SignInBox = styled.div`
+  height: 100vh;
+`;
 
 const Form = styled.form`
   display: flex;
