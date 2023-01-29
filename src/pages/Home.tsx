@@ -5,6 +5,7 @@ function HomePage() {
   return (
     <div>
       <div>
+        <img src="D:\File\Coding\Project\pj\src\img\imgs.jpg" alt="" />
         <Link to="/sigin">회원 가입</Link>
         <br />
         <Link to="/login">로그인</Link>

@@ -3,40 +3,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/config";
-import styled from "styled-components";
-const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-`;
-export const SignInBox = styled.div`
-  height: 100vh;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const H3 = styled.h3`
-  font-size: 2rem;
-  color: ${(props) => props.theme.textColor};
-`;
-const InputEmail = styled.input`
-  width: 300px;
-  height: 100px;
-`;
-
-const InputPassword = styled.input`
-  width: 300px;
-  height: 100px;
-  margin-top: 10px;
-`;
-
-const Btn = styled.button``;
-
+import "./Style.css";
 function Sigin() {
   const movePage = useNavigate();
   const [registerEmail, setEegisterEmail] = useState("");
@@ -70,17 +37,20 @@ function Sigin() {
   };
 
   return (
-    <Container>
-      <SignInBox>
-        <Form onSubmit={handleSubmit}>
-          <H3>회원가입</H3>
-          <InputEmail
+    <div className="container">
+      <div className="Box">
+        <form onSubmit={handleSubmit} className="formBox">
+          <h3 className="h3">회원가입</h3>
+          <input
+            className="inputEmail"
             type="email"
             placeholder="이메일"
             onChange={OnChangeEmail}
             required={true}
           />
-          <InputPassword
+
+          <input
+            className="inputPassword"
             type="password"
             placeholder="비밀번호"
             onChange={OnChangePassword}
@@ -88,10 +58,11 @@ function Sigin() {
             maxLength={10}
             required={true}
           />
-          <Btn>계정 생성</Btn>
-        </Form>
-      </SignInBox>
-    </Container>
+
+          <button className="submitBtn">계정 생성</button>
+        </form>
+      </div>
+    </div>
   );
 }
 export default Sigin;
