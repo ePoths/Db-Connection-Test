@@ -1,9 +1,13 @@
 import * as React from "react";
 import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/config";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [logInEmail, setLogInEmail] = useState("");
   const [logInPassword, setLogInPassword] = useState("");
+  const movePage = useNavigate();
 
   const OnChangeEmail = (event: React.FormEvent<HTMLInputElement>) => {
     const {
@@ -18,20 +22,40 @@ function Login() {
     setLogInPassword(value);
   };
 
+  const LogInSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    signInWithEmailAndPassword(auth, logInEmail, logInPassword)
+      .then(() => {
+        alert("로그인 성공!");
+        movePage("/Home");
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  };
+
   return (
     <div>
-      <div>
+      <form action="" onSubmit={LogInSubmit}>
         <h3>로그인</h3>
-        <input type="email" placeholder="이메일" onChange={OnChangeEmail} />
+        <input
+          type="email"
+          placeholder="이메일"
+          onChange={OnChangeEmail}
+          required={true}
+        />
         <input
           type="password"
           placeholder="비밀번호"
           onChange={OnlogInPassword}
+          minLength={6}
+          maxLength={10}
+          required={true}
         />
         <button>로그인</button>
-      </div>
+      </form>
+      <div></div>
     </div>
   );
 }
-const login = async () => {};
 export default Login;
