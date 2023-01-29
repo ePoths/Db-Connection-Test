@@ -10,13 +10,31 @@ const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 `;
+const SignInBox = styled.div``;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const H3 = styled.h3``;
+const H3 = styled.h3`
+  font-size: 2rem;
+  color: ${(props) => props.theme.textColor};
+`;
+const InputEmail = styled.input`
+  width: 300px;
+  height: 100px;
+`;
+
+const InputPassword = styled.input`
+  width: 300px;
+  height: 100px;
+  margin-top: 10px;
+`;
+
+const Btn = styled.button``;
 
 function Sigin() {
   const movePage = useNavigate();
@@ -49,26 +67,29 @@ function Sigin() {
         alert(e);
       });
   };
+
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
-        <h3>회원가입</h3>
-        <input
-          type="email"
-          placeholder="이메일"
-          onChange={OnChangeEmail}
-          required={true}
-        />
-        <input
-          type="password"
-          placeholder="비밀번호"
-          onChange={OnChangePassword}
-          minLength={6}
-          maxLength={10}
-          required={true}
-        />
-        <button>계정 생성</button>
-      </Form>
+      <SignInBox>
+        <Form onSubmit={handleSubmit}>
+          <H3>회원가입</H3>
+          <InputEmail
+            type="email"
+            placeholder="이메일"
+            onChange={OnChangeEmail}
+            required={true}
+          />
+          <InputPassword
+            type="password"
+            placeholder="비밀번호"
+            onChange={OnChangePassword}
+            minLength={6}
+            maxLength={10}
+            required={true}
+          />
+          <Btn>계정 생성</Btn>
+        </Form>
+      </SignInBox>
     </Container>
   );
 }
