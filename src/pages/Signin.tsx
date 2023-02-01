@@ -4,10 +4,13 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/config";
 import "./Style.css";
+import ASS from "../img/imgs.jpg";
+
 function Sigin() {
   const movePage = useNavigate();
   const [registerEmail, setEegisterEmail] = useState("");
   const [registerpassword, setRegisterPassword] = useState("");
+  const key = "000000000000001";
   //
   const OnChangeEmail = (event: React.FormEvent<HTMLInputElement>) => {
     const {
@@ -29,6 +32,7 @@ function Sigin() {
     createUserWithEmailAndPassword(auth, registerEmail, registerpassword)
       .then(() => {
         alert("회원 가입 성공");
+        window.localStorage.setItem(key, "up");
         movePage("/login");
       })
       .catch((e) => {
@@ -38,6 +42,7 @@ function Sigin() {
 
   return (
     <div className="container">
+      <img src="" alt="" />
       <div className="Box">
         <form onSubmit={handleSubmit} className="formBox">
           <h3 className="h3">회원가입</h3>
@@ -58,7 +63,6 @@ function Sigin() {
             maxLength={10}
             required={true}
           />
-
           <button className="submitBtn">계정 생성</button>
         </form>
       </div>
