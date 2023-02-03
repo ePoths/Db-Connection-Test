@@ -1,12 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function HomePage() {
-  const key = "000000000000001";
-  const onClick = () => {
-    alert("!");
-  };
-
+  const [loading, setLoading] = useState(true);
+  const movePage = useNavigate();
+  const key = "0000000000000000000000001";
+  useEffect(() => {
+    if (window.localStorage.getItem(key) === null) {
+      alert("아직 회원 가입을 하지 않으셨습니다.");
+      movePage("/sigin");
+    } else {
+      movePage("/login");
+    }
+  });
   return (
     <div>
       <div>
@@ -15,7 +21,6 @@ function HomePage() {
         <Link to="/login">로그인</Link>
         <br />
         <Link to="/">홈</Link>
-        <button onClick={onClick}>test</button>
       </div>
     </div>
   );

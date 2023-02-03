@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [logInEmail, setLogInEmail] = useState("");
@@ -26,8 +26,7 @@ function Login() {
     event.preventDefault();
     signInWithEmailAndPassword(auth, logInEmail, logInPassword)
       .then(() => {
-        alert("로그인 성공!");
-        movePage("/Home");
+        movePage("/userPage");
       })
       .catch((e) => {
         alert(e);
@@ -54,8 +53,9 @@ function Login() {
         />
         <button>로그인</button>
       </form>
-      <div></div>
+      <Link to="/signup">회원가입</Link>
     </div>
   );
 }
+
 export default Login;

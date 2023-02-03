@@ -1,17 +1,21 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/config";
 import "./Style.css";
-import ASS from "../img/imgs.jpg";
+// import ASS from "../img/imgs.jpg";
 
-function Sigin() {
+function SignUp() {
   const movePage = useNavigate();
   const [registerEmail, setEegisterEmail] = useState("");
   const [registerpassword, setRegisterPassword] = useState("");
-  const key = "000000000000001";
+  const [randomNumber, setRandomNumber] = useState(0);
+  const key = "0000000000000000000000001";
   //
+  useEffect(() => {
+    setRandomNumber(Math.random());
+  }, []);
   const OnChangeEmail = (event: React.FormEvent<HTMLInputElement>) => {
     const {
       currentTarget: { value },
@@ -32,7 +36,7 @@ function Sigin() {
     createUserWithEmailAndPassword(auth, registerEmail, registerpassword)
       .then(() => {
         alert("회원 가입 성공");
-        window.localStorage.setItem(key, "up");
+        window.localStorage.setItem(key, `${randomNumber}`);
         movePage("/login");
       })
       .catch((e) => {
@@ -69,4 +73,4 @@ function Sigin() {
     </div>
   );
 }
-export default Sigin;
+export default SignUp;
