@@ -9,7 +9,7 @@ function mainPage() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <Link to={`userPage/users/${user.id}`}>{user.name}</Link>
+            <Link to={`/users/${user.id}`}>{user.name}</Link>
           </li>
         ))}
       </ul>

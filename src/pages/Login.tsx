@@ -26,7 +26,7 @@ function Login() {
     event.preventDefault();
     signInWithEmailAndPassword(auth, logInEmail, logInPassword)
       .then(() => {
-        movePage("/userPage");
+        movePage("/mainpage");
       })
       .catch((e) => {
         alert(e);
