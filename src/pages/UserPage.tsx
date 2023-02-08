@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { users } from "../db";
 
 function mainPage() {
+  const [show, setShow] = useState(true);
   return (
     <div>
       <ul>

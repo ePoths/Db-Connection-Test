@@ -52,8 +52,8 @@ function Login() {
           required={true}
         />
         <button>로그인</button>
+        <Link to="/signup">회원가입</Link>
       </form>
-      <Link to="/signup">회원가입</Link>
     </div>
   );
 }
