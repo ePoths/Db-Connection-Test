@@ -3,6 +3,7 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/config";
 import { Link, useNavigate } from "react-router-dom";
+import "./LogInStyle.css";
 
 function Login() {
   const [logInEmail, setLogInEmail] = useState("");
@@ -34,16 +35,18 @@ function Login() {
   };
 
   return (
-    <div>
-      <form action="" onSubmit={LogInSubmit}>
-        <h3>로그인</h3>
+    <div className="loginContainer">
+      <form className="loginForm" action="" onSubmit={LogInSubmit}>
+        <h3 className="loginH3">로그인</h3>
         <input
+          className="loginInputEmail"
           type="email"
           placeholder="이메일"
           onChange={OnChangeEmail}
           required={true}
         />
         <input
+          className="loginInputPassword"
           type="password"
           placeholder="비밀번호"
           onChange={OnlogInPassword}
@@ -51,8 +54,10 @@ function Login() {
           maxLength={10}
           required={true}
         />
-        <button>로그인</button>
-        <Link to="/signup">회원가입</Link>
+        <button className="loginBtn">로그인</button>
+        <Link className="lPsiginup" to="/signup">
+          회원가입
+        </Link>
       </form>
     </div>
   );
