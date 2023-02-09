@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/config";
-import "./SignUpStyle.css";
+import "../style/SignUpStyle.css";
 // import ASS from "../img/imgs.jpg";
 
 function SignUp() {
