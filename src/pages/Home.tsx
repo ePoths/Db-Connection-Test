@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function HomePage() {
-  const [loading, setLoading] = useState(true);
   const movePage = useNavigate();
   const key = "0000000000000000000000001";
   useEffect(() => {
