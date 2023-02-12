@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import UserPage from "./pages/UserPage";
+import Coin from "./pages/users/coine/coin";
+import Coins from "./pages/users/coine/coins";
 import Followers from "./pages/users/Followers";
 import User from "./pages/users/User";
 
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/mainpage",
+    path: "/userpage",
     element: <UserPage />,
   },
   {
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
         element: <Followers />,
       },
     ],
+  },
+  {
+    path: "/users/coin",
+    element: <Coins />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "/users/coin/:coinId",
+    element: <Coin />,
+    errorElement: <NotFound />,
   },
 ]);
 export default router;

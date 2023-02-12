@@ -11,6 +11,7 @@
   padding: 20px;
   border-radius: 10px;
   justify-content: center;
+  align-items: center;
   border: 1px solid gray;
 }
 .loginH3 {
@@ -19,11 +20,10 @@
 .loginInputEmail,
 .loginInputPassword {
   padding: 10px;
-  margin-bottom: 20px;
   font-size: 16px;
   border-radius: 5px;
+  margin-bottom: 20px;
   border: 1px solid black;
-  outline: none;
 }
 .loginBtn {
   padding: 10px 20px;

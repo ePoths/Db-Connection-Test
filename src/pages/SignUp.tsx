@@ -45,31 +45,28 @@ function SignUp() {
   };
 
   return (
-    <div className="container">
-      <img src="" alt="" />
-      <div className="Box">
-        <form onSubmit={handleSubmit} className="formBox">
-          <h3 className="h3">회원가입</h3>
-          <input
-            className="inputEmail"
-            type="email"
-            placeholder="이메일"
-            onChange={OnChangeEmail}
-            required={true}
-          />
+    <div className="signUpcontainer">
+      <form onSubmit={handleSubmit} className="signUpForm">
+        <h3 className="signUpH3">회원가입</h3>
+        <input
+          className="signUpInputEmail"
+          type="email"
+          placeholder="이메일"
+          onChange={OnChangeEmail}
+          required={true}
+        />
 
-          <input
-            className="inputPassword"
-            type="password"
-            placeholder="비밀번호"
-            onChange={OnChangePassword}
-            minLength={6}
-            maxLength={10}
-            required={true}
-          />
-          <button className="submitBtn">계정 생성</button>
-        </form>
-      </div>
+        <input
+          className="signUpInputPassword"
+          type="password"
+          placeholder="비밀번호"
+          onChange={OnChangePassword}
+          minLength={6}
+          maxLength={10}
+          required={true}
+        />
+        <button className="siginUpBtn">계정 생성</button>
+      </form>
     </div>
   );
 }
